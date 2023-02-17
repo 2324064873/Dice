@@ -1,0 +1,122 @@
+.dice-box {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  left: 50%;
+  top: 300px;
+  transform-style: preserve-3d;
+  transform: rotateY(185deg) rotateX(150deg) rotateZ(315deg);
+}
+.dice {
+  width: 200px;
+  height: 200px;
+  padding: 20px;
+  box-sizing: border-box;
+  opacity: 0.7;
+  background-color: tomato;
+  position: absolute;
+  /* border-radius: 10%; */
+}
+.dot {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: white;
+}
+/* 一 */
+.first-face {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 移动 */
+.first-face {
+  transform: translateZ(100px);
+}
+/* 二 */
+.second-face {
+  display: flex;
+  justify-content: space-between;
+}
+.second-face .dot:nth-child(2) {
+  align-self: flex-end;
+}
+/* 移动 +旋转*/
+.second-face {
+  transform: translateX(-100px) rotateY(-90deg);
+}
+/* 三 */
+.third-face {
+  display: flex;
+  justify-content: space-between;
+}
+.third-face .dot:nth-child(2) {
+  align-self: center;
+}
+.third-face .dot:nth-child(3) {
+  align-self: flex-end;
+}
+/* 移动+旋转 */
+.third-face {
+  transform: translateY(100px) rotateX(90deg);
+}
+/* 四 */
+.fourth-face {
+  display: flex;
+  justify-content: space-between;
+}
+.fourth-face .column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/* 旋转+移动 */
+.fourth-face {
+  transform: translateY(-100px) rotateX(90deg);
+}
+/* 五 */
+.fifth-face {
+  display: flex;
+  justify-content: space-between;
+}
+.fifth-face .column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.fifth-face .column:nth-child(2) {
+  justify-content: center;
+}
+
+/* 移动+旋转 */
+.fifth-face {
+  transform: translateX(100px) rotateY(90deg);
+}
+/* 六 */
+.sixth-face {
+  display: flex;
+  justify-content: space-between;
+}
+.sixth-face .column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/* 移动 */
+.sixth-face {
+  transform: translateZ(-100px);
+}
+
+/* 让骰子动起来 */
+@keyframes rotate {
+  from {
+    transform: rotateY(0) rotateX(45deg) rotateZ(45deg);
+  }
+  to {
+    transform: rotateY(360deg) rotateX(45deg) rotateZ(45deg);
+  }
+}
+.dice-box {
+  animation: rotate 5s linear infinite;
+}
